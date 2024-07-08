@@ -116,12 +116,7 @@ if(isset($_POST['submit'])){
                                                                 <input type="address" name="address" value="<?php echo $row['address']?>">
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6">
-                                                            <div class="billing-info">
-                                                                <label>Station</label>
-                                                                <input type="address" name="station" value="<?php echo $row['station']?>" >
-                                                            </div>
-                                                        </div>
+                                                       
                                                         
                                                     </div>
                                                     <div class="billing-back-btn">
