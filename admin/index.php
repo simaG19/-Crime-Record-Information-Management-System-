@@ -1,193 +1,120 @@
 <?php
-include('header.php');
-?>
-<div class="main-panel">
-    <div class="content-wrapper">
-    <div class="row">
-        <div class="col-md-6 col-lg-3 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="font-weight-light mb-4">
-                        <?php
-                        $start=date('Y-m-d'). '00-00-00';
-                        $end=date('Y-m-d'). '23-59-59';
-                        $sql="select * from cases where added_on between '".date('Y-m-d')." 00-00-00' and '".date('Y-m-d')." 23-59-59'";
-                        $res=mysqli_query($con,$sql);
-                        if($row=mysqli_num_rows($res)){
-                            echo"<h4 class='mb-0'>".$row."</h4>";
-                        }else{
-                            echo"<h4 class='mb-0'>0</h4>";
-                        }
-                        ?>
-                    </h1>
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div>
-                            <h4 class="font-weight-normal">Today Cases</h4>
-                            <p class="text-muted mb-0 font-weight-light">Last 24 Hours</p>
-                        </div>
-                        <i class="mdi mdi-account-card-details icon-lg text-primary ml-auto"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="font-weight-light mb-4">
-                        <?php
-                        $start=strtotime(date('Y-m-d'));
-                        $start=strtotime("-7 day",$start);
-                        $start=date('Y-m-d',$start);
-                        $end=date('Y-m-d'). '23-59-59';
-
-                        $sql="select * from cases where added_on between '$start' and '".date('Y-m-d')." 23-59-59'";
-                        $res=mysqli_query($con,$sql);
-                        if($row=mysqli_num_rows($res)){
-                            echo"<h4 class='mb-0'>".$row."</h4>";
-                        }else{
-                            echo"<h4 class='mb-0'>0</h4>";
-                        }
-                         ?>
-                    </h1>
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div>
-                            <h4 class="font-weight-normal">Week Cases</h4>
-                            <p class="text-muted mb-0 font-weight-light">Last 7 Days</p>
-                        </div>
-                        <i class="mdi mdi-account-card-details icon-lg text-primary ml-auto"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="font-weight-light mb-4">
-                        <?php
-                        $start=strtotime(date('Y-m-d'));
-                        $start=strtotime("-30 day",$start);
-                        $start=date('Y-m-d',$start);
-                        $end=date('Y-m-d'). '23-59-59';
-                        $sql="select * from cases where added_on between '$start' and '".date('Y-m-d')." 23-59-59'";
-                        $res=mysqli_query($con,$sql);
-                        if($row=mysqli_num_rows($res)){
-                            echo"<h4 class='mb-0'>".$row."</h4>";
-                        }else{
-                            echo"<h4 class='mb-0'>0</h4>";
-                        }
-                         ?>
-                    </h1>
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div>
-                            <h4 class="font-weight-normal">Month Cases</h4>
-                            <p class="text-muted mb-0 font-weight-light">Last 30 Days</p>
-                        </div>
-                        <i class="mdi mdi-account-card-details icon-lg text-primary ml-auto"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-3 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="font-weight-light mb-4">
-                        <?php
-                        $start=strtotime(date('Y-m-d'));
-                        $start=strtotime("-365 day",$start);
-                        $start=date('Y-m-d',$start);
-                        $end=date('Y-m-d'). '23-59-59';
-                        $sql="select * from cases where added_on between '$start' and '".date('Y-m-d')." 23-59-59' ";
-                        $res=mysqli_query($con,$sql);
-                        if($row=mysqli_num_rows($res)){
-                            echo"<h4 class='mb-0'>".$row."</h4>";
-                        }else{
-                            echo"<h4 class='mb-0'>0</h4>";
-                        }
-                         ?>
-                    </h1>
-                    <div class="d-flex flex-wrap align-items-center">
-                        <div>
-                            <h4 class="font-weight-normal">Year Cases</h4>
-                            <p class="text-muted mb-0 font-weight-light">Last 365 Days</p>
-                        </div>
-                        <i class="mdi mdi-account-card-details icon-lg text-primary ml-auto"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-       
-       
-        <div class="col-md-6 col-lg-3 grid-margin stretch-card">
-            <div class="card">
-               
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php
-    $sql="select cases.*,category from cases,category where cases.category_id=category.id order by cases.id desc limit 5";
+include('../connection.inc.php');
+include('../function.inc.php');
+include('../constant.inc.php');
+$msg='';
+if(isset($_POST['submit'])){
+    $username=get_safe_value($con,$_POST['username']);
+    $password=get_safe_value($con,$_POST['password']);
+    $sql="select * from user where username='$username' and password='$password' and role='admin' and status=1  ";
     $res=mysqli_query($con,$sql);
-    ?>
-    <div class="row">
-        <div class="col-12">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Latest 5 Cases</h4>
-                    <div class="table-responsive">
-                        
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th width="5%">S.No</th>
-                                    <th width="10%">Plaintff</th>
-                                    <th width="10%">Defendent</th>
-                                    <th width="10%">Case Cine</th>
-                                    <th width="10%">Accusated at</th>
-                                    <th width="10%">Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php if(mysqli_num_rows($res)>0){
-                                    $i=1;
-                                    while($row=mysqli_fetch_assoc($res)){
-                                ?>
-                                <tr>
-                                    <td><?php echo $i?></td>
-                                   
-                                    <td><?php echo $row['category']?></td>
-                                    <td><?php echo $row['accuser']?></td>
-                                    <td><?php echo $row['defendent']?></td>
-                                    <td><?php echo $row['cine']?></td>
-                                    <td><?php echo $row['accusation']?></td>
-                                    <td>
-                                        <a href="case_detail.php?id=<?php echo $row['id']?>"><button type="button" class="add-btn">View Detail</button></a>
-                                    </td>
-                                </tr>
-                                <?php 
-                                    $i++; } } else { ?>
-                                    <h6 colspan="5">No data found</h6>
-                                <?php } ?>
-                            </tbody>
-                        </table>
-                        
+    if(mysqli_num_rows($res)>0){
+      $row=mysqli_fetch_assoc($res);
+      $_SESSION['ADMIN_IS_LOGIN']='yes';
+      $_SESSION['ADMIN_USER']=$row['name'];
+      $_SESSION['ADMIN_USER_NAME']=$row['username'];
+      $_SESSION['ADMIN_ID']=$row['id'];
+      redirect('index.php');
+    }else{
+        $msg="Please enter correct login details";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Login</title>
+  <link rel="stylesheet" href="assets/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="assets/css/vendor.bundle.base.css">
+  <link rel="stylesheet" href="assets/css/dataTables.bootstrap4.css">
+  <link rel="stylesheet" href="assets/css/bootstrap-datepicker.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <!--<link rel="stylesheet" href="assets/css/added.css">-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="sidebar-light">
+  <div class="container-scroller">
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
+            <ul class="navbar-nav mr-lg-2 d-none d-lg-flex">
+                <li class="nav-item nav-toggler-item"></li>
+            </ul>
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+                <a class="navbar-brand brand-logo" href="index.php"><img src="<?php echo LOGO_IMAGE_SITE_PATH."1.jpg"?>" alt="logo"/></a>&nbsp;&nbsp;   Police Station<br>&nbsp;&nbsp;Crime Record Management System<br>
+                <a class="navbar-brand brand-logo-mini" href="index.php"><img src="<?php echo LOGO_IMAGE_SITE_PATH."1.jpg"?>" alt="logo"/></a>
+            </div>
+            <ul class="navbar-nav navbar-nav-right">
+                <li class="nav-item nav-profile dropdown">
+                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                    <span class="nav-profile-name">About us</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-profile dropdown">
+                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
+                    <span class="nav-profile-name">Contact us</span>
+                    </a>
+                </li>
+                <li class="nav-item nav-toggler-item-right d-lg-none">
+                    <button class="navbar-toggler align-self-center" type="button" data-toggle="offcanvas">
+                    <span class="mdi mdi-menu"></span>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+        <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+        <div class="main-panel  col-lg-12">
+            <div class="content-wrapper">
+                <div class="container-scroller">
+                    <div class="container-fluid">
+                        <div class="content-wrapper d-flex align-items-center auth">
+                            <div class="row w-100">
+                                <div class="col-lg-6 mx-auto">
+                                    <div class="auth-form-light text-left p-5">
+                                        <h6 class="font-weight-light">Sign in to continue.</h6>
+                                        <form class="pt-3" method="post">
+                                            <div class="form-group">
+                                                <input type="textbox" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username" name="username" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password" name="password" required>
+                                            </div>
+                                            <div class="mt-3">
+                                                <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="SIGN IN" name="submit">
+                                            </div>
+                                        </form>
+                                        <div style="color:red;margin-top: 15px;"><?php echo $msg?></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>    
-  
-    <style>
-    .add-btn{
-    text-transform: uppercase;
-    border: none;
-    font-family: inherit;
-    padding: 10px 28px;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-    }
-    </style>
-<?php
-include('footer.php');
-?>
+
+            <footer class="footer">
+                <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                    <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">       <?php echo date('Y')?> <a href="#" target="_blank">   </a>.  .</span>
+                </div>
+            </footer>
+      </div>
+    </div>
+  </div>
+
+  <script src="assets/js/vendor.bundle.base.js"></script>
+  <script src="assets/js/Chart.min.js"></script>
+  <script src="assets/js/bootstrap-datepicker.min.js"></script>
+  <script src="assets/js/jquery.dataTables.js"></script>
+  <script src="assets/js/dataTables.bootstrap4.js"></script>
+  <script src="assets/js/off-canvas.js"></script>
+  <script src="assets/js/hoverable-collapse.js"></script>
+  <script src="assets/js/template.js"></script>
+  <script src="assets/js/settings.js"></script>
+  <script src="assets/js/todolist.js"></script>
+  <script src="assets/js/dashboard.js"></script>
+  <script src="assets/js/data-table.js"></script>
+</body>
+</html>
