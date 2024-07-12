@@ -337,7 +337,7 @@ $res_category=mysqli_query($con,"select * from category where status='1' order b
 
 									<div class="form-group" id="dish_box1">
                                         <label for="exampleInputEmail3"><b>Witness Form</b></label>
-                                        <?php if($id==0){?>
+                                        <?php if(true){?>
                                             <div class="row">
                                                 <div class="col-5">
                                                     <input type="text" class="form-control" placeholder="Witness Name" name="witness[]" required>
