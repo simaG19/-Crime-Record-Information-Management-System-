@@ -238,7 +238,7 @@ img{
     <div class="content-wrapper">
         <div class = "main-title">
             <h3><strong>Case Files</strong></h3>
-            <p><a href="manage_cases.php">Add Case</a></p>
+         <!-- <p><a href="manage_cases.php">Add Case</a></p> -->
         </div>
         <div class = "display-style-btns">
             <button type = "button" id = "grid-active-btn">
