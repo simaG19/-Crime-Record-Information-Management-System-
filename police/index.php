@@ -13,7 +13,7 @@ if(isset($_POST['submit'])){
       $_SESSION['POLICE_IS_LOGIN']='yes';
       $_SESSION['POLICE_USER']=$row['name'];
       $_SESSION['POLICE_ID']=$row['id'];
-      redirect('index.php');
+      redirect('index1.php');
     }else{
         $msg="Please enter correct login details";
     }

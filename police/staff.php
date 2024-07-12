@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
 	}else{
 		
            
-        $sql = "INSERT INTO user(name, username, password, email, gender, dob, station, address,phone,role, added_on) VALUES('$name', '$username', '$password', '$email', '$gender','$dob', '$station','$address','$phone','$role', '$added_on')";
+        $sql = "INSERT INTO user(name, username, password, email, gender, dob, station, address,phone,role, added_on) VALUES('$name', '$username', '$password', '$email', '$gender','$dob', '$station','$address','$phone','police', '$added_on')";
         
 			mysqli_query($con,$sql);
 	  	redirect('index.php');
@@ -90,17 +90,7 @@ if(isset($_POST['submit'])){
                       <label for="exampleInputAddress1">Station</label>
                       <input type="text" name="station" class="form-control" id="exampleInputCity1" placeholder="Station" required value="<?php echo $station?>">
                     </div>
-                    <div class="form-group">
-                      <label for="exampleSelectGender">Work Role</label>
-                        <select name="role" class="form-control" id="exampleSelectrole">
-                            <option value="">Select Role</option>
-                            <option value="admin">Admin</option>
-                            <option value="subadmin">SubAdmin</option>
-                            <option value="police">Police</option>
-                            <option value="archive">Archive</option>
-                            <option value="detective">Detective</option>
-                        </select>
-                      </div>
+                  
                     <button type="submit" class="btn btn-primary mr-2" name="submit">Submit</button>
                     <div style="color:red;margin-top: 15px;"><?php echo $msg?></div>
                   </form>

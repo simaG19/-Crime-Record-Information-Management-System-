@@ -268,7 +268,7 @@ img{
                         <div class = "item-price">
                             <span class = "new-price"></span>
                             <?php
-                            if($row['detective_id']=='0'){?>
+                            if($row['id']!='0'){?>
                                 <a href="manage_cases.php?id=<?php echo $row['id']?>"><label class="btn btn-dark mr-2 hand_cursor">Edit</label></a>&nbsp;
                             <?php }else{ ?>
 
