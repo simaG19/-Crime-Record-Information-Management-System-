@@ -254,11 +254,7 @@ $res_category=mysqli_query($con,"select * from category where status='1' order b
 											<div class="error mt8"><?php echo $msg?></div>
 										</div>
 
-										<div class="form-group">
-											<label for="exampleInputName1">Image</label>
-											<input type="file" class="form-control" placeholder="Defendent Image" name="image">
-											
-										</div>
+										
 
 										<div class="form-group">
 											<label for="gender" class=" form-control-label">Gender *</label>

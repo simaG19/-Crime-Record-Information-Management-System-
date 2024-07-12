@@ -1,9 +1,8 @@
 <?php
 include('header.php');
-if(!isset($_SESSION['SUB_ADMIN_USER_ID'])){
+if(!isset($_SESSION['POLICE_IS_LOGIN'])){
 	redirect('index.php');
 }
-
 
 
 $uid=$_SESSION['POLICE_ID'];
