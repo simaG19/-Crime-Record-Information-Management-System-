@@ -2,7 +2,7 @@
 <?php
 include('header.php');
 if(!isset($_SESSION['POLICE_ID'])){
-	redirect('login.php');
+	redirect('index.php');
 }
 $getUserDetails=getUserDetailsByid();
 ?>

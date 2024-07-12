@@ -5,7 +5,6 @@ if(!isset($_SESSION['POLICE_IS_LOGIN'])){
 }
 
 
-
 $uid=$_SESSION['POLICE_ID'];
 
 

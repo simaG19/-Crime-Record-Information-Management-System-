@@ -1,4 +1,9 @@
 <?php
+
+if(isset($_SESSION['SUB_ADMIN_IS_LOGIN'])){
+  redirect('manage_cases.php');
+}
+
 include('header.php');
 $msg="";
 $name="";

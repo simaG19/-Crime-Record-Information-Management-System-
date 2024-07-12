@@ -38,7 +38,7 @@ img {
                 <div class="card px-2">
                   <div class="card-body">
                     <div class="container-fluid">
-                      <img src="assets/images/police.jpg" alt="logo" style="width: 100px;hight: 100px;"/>
+                      <img src="assets/images/police.jpg" alt="logo" style="width: 100px;height: 100px;"/>
                       <h3 class="text-right my-3">Case&nbsp;&nbsp;#<?php echo $courtRow['id']?></h3>
                       <hr>
                     </div>

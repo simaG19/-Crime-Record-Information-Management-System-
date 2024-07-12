@@ -16,7 +16,7 @@ $id="";
 
 
 if(!isset($_SESSION['SUB_ADMIN_IS_LOGIN'])){
-  redirect('login.php');
+  redirect('index.php');
 }
 $session= $_SESSION['SUB_ADMIN_USER'];
 
@@ -30,9 +30,11 @@ if(isset($_POST['submit'])){
     $category=get_safe_value($con,$_POST['category']);
     $address=get_safe_value($con,$_POST['address']);
     $phone=get_safe_value($con,$_POST['phone']);
+
+    $select = "SELECT * FROM report WHERE name = '$name' AND category = '$category' AND statement = '$statement'";
     
 
-	if(mysqli_num_rows(mysqli_query($con,$sql))>0){
+	if(mysqli_num_rows(mysqli_query($con,$select))>0){
 		$msg="user report already added";
 	}else{
 		
