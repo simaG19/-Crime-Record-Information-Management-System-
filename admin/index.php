@@ -42,7 +42,7 @@ if(isset($_POST['submit'])){
                 <li class="nav-item nav-toggler-item"></li>
             </ul>
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/1.jpg"?></a>&nbsp;&nbsp;   Police Station<br>&nbsp;&nbsp;Crime Record Management System<br>
+                <a class="navbar-brand brand-logo" href="index.php"><img src="assets/images/2.jpg"?></a>&nbsp;&nbsp;   Police Station<br>&nbsp;&nbsp;Crime Record Management System<br>
                 <a class="navbar-brand brand-logo-mini" href="index.php"><img src="<?php echo LOGO_IMAGE_SITE_PATH."1.jpg"?>" alt="logo"/></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
