@@ -76,7 +76,7 @@ if(isset($_POST['submit'])){
 <div class="main-panel">        
         <div class="content-wrapper">
           <div class="row">
-			<h3 class="card-title ml10"><strong>Police</strong>&nbsp;<small>Form</small></h3>
+			<h3 class="card-title ml10"><strong>User</strong>&nbsp;<small>Form</small></h3>
             <div class="col-12 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -126,7 +126,7 @@ if(isset($_POST['submit'])){
                       <label for="exampleSelectGender">Work Role</label>
                         <select name="role" class="form-control" id="exampleSelectrole">
                             <option value="">Select Role</option>
-                            
+                            <option value="police">Admin</option>
                             <option value="police">Police</option>
                           
                         </select>

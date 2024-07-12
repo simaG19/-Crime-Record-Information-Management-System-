@@ -94,17 +94,17 @@ if($cur_path=='' || $cur_path=='index.php'){
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index1.php">
+            <a class="nav-link" href="index.php">
               <i class="mdi mdi-view-quilt menu-icon"></i>
               <span class="menu-title">Dashboard</span>
             </a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link" href="staff.php">
               <i class="mdi mdi-incognito menu-icon"></i>
               <span class="menu-title">Staff</span>
             </a>
-          </li>
+          </li> -->
 		      <li class="nav-item">
             <a class="nav-link" href="case.php">
               <i class="mdi mdi-account-card-details menu-icon"></i>
