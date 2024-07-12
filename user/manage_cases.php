@@ -59,10 +59,30 @@ if(isset($_POST['submit'])){
                       <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name" required value="<?php echo $name?>">
                     </div>
                    
+
+                    <div class="form-group">
+                    <label for="exampleInputName1">Category</label>
+										<select name="category" class="form-control" required value="<?php echo $category?>">
+											<option value="">Select Category</option>
+											<?php
+
+                      $res_category=mysqli_query($con,"select * from category where status='1' order by category asc");
+											while($row_category=mysqli_fetch_assoc($res_category)){
+												if($row_category['category']==$category_id){
+													echo"<option value='".$row_category['category']."' selected>".$row_category['category']."</option>";
+												}else{
+													echo"<option value='".$row_category['category']."'>".$row_category['category']."</option>";
+												}
+											}
+											?>
+										</select>
+									</div>
+
+<!-- 
                     <div class="form-group">
                       <label for="exampleInputName1">Category</label>
                       <input type="text" name="category" class="form-control" id="exampleInputName1" placeholder="category" required value="<?php echo $category?>">
-                    </div>
+                    </div> -->
                     <div class="form-group">
                       <label for="exampleInputEmail3">Work</label>
                       <input type="text" name="work" class="form-control" id="exampleInputEmail3" placeholder="Work" value="<?php echo $email?>">
