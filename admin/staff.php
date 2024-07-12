@@ -17,7 +17,7 @@ if(isset($_GET['type']) && $_GET['type']!=='' && isset($_GET['id']) && $_GET['id
 	}
 
 }
-$sql="select * from user order by id desc";
+$sql="select * from user where role='police' order by id desc";
 $res=mysqli_query($con,$sql);
 ?>
 <style>
@@ -237,7 +237,7 @@ img{
     <div class="content-wrapper">
         <div class = "main-title">
             <h3><strong>Police Staff</strong></h3>
-            <h6><a href="manage_police.php" class="grid_sub_title">Add Police</a></h6>
+            <h6><a href="manage_police.php" class="grid_sub_title">Add User</a></h6>
         </div>
         <div class = "display-style-btns">
             
