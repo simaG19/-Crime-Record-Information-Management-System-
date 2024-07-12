@@ -46,16 +46,7 @@ if(isset($_POST['submit'])){
                 <a class="navbar-brand brand-logo-mini" href="index.php"><img src="<?php echo LOGO_IMAGE_SITE_PATH."1.jpg"?>" alt="logo"/></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">About us</span>
-                    </a>
-                </li>
-                <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Contact us</span>
-                    </a>
-                </li>
+                
                 <li class="nav-item nav-profile dropdown">
                     <a href="signup.php">
                     Sign Up
@@ -91,9 +82,7 @@ if(isset($_POST['submit'])){
                                             <div class="mt-3">
                                                 <input type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" value="SIGN IN" name="submit">
                                             </div>
-                                            <a href="signup.php">
-                    Sign Up
-                    </a>
+                                        
                                         </form>
                                         <div style="color:red;margin-top: 15px;"><?php echo $msg?></div>
                                     </div>

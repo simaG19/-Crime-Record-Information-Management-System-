@@ -46,16 +46,7 @@ if(isset($_POST['submit'])){
                 <a class="navbar-brand brand-logo-mini" href="index.php"><img src="<?php echo LOGO_IMAGE_SITE_PATH."1.jpg"?>" alt="logo"/></a>
             </div>
             <ul class="navbar-nav navbar-nav-right">
-                <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">About us</span>
-                    </a>
-                </li>
-                <li class="nav-item nav-profile dropdown">
-                    <a class="nav-link" href="#" data-toggle="dropdown" id="profileDropdown">
-                    <span class="nav-profile-name">Contact us</span>
-                    </a>
-                </li>
+               
                 <li class="nav-item nav-toggler-item-right d-lg-none">
                     <button class="navbar-toggler align-self-center" type="button" data-toggle="offcanvas">
                     <span class="mdi mdi-menu"></span>
