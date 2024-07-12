@@ -268,7 +268,7 @@ img{
                             <a href="case_details.php?id=<?php echo $row['id']?>"><label class="btn btn-primary mr-2 hand_cursor">View Detail</label></a>
 							
                         </div>
-                        <p>Crime Cine:  <?php echo $row['cine']?></p>
+                        <p>Crime Scene:  <?php echo $row['cine']?></p>
                         <p>Accusation date:  <?php echo $row['accusation']?></p>
                         
                     </div>

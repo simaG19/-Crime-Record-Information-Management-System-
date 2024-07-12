@@ -3,7 +3,7 @@ include('../connection.inc.php');
 include('../function.inc.php');
 include('../constant.inc.php');
 if(!isset($_SESSION['SUB_ADMIN_IS_LOGIN'])){
-    redirect('login.php');
+    redirect('index.php');
 }
 $curStr=$_SERVER['REQUEST_URI'];
 $curArr=explode('/',$curStr);
@@ -94,7 +94,7 @@ if($cur_path=='' || $cur_path=='manage_cases.php'){
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="index.php">
+            <a class="nav-link" href="manage_cases.php">
               <i class="mdi mdi-view-quilt menu-icon"></i>
               <span class="menu-title">Report</span>
             </a>

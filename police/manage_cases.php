@@ -139,7 +139,7 @@ if(isset($_POST['submit'])){
 					
 					$oldImageRow=mysqli_fetch_assoc(mysqli_query($con,"select image from case where id='$id'"));
 					$oldImage=$oldImageRow['image'];
-					unlink(SERVER_DISH_IMAGE.$oldImage);
+					unlink($SERVER_DISH_IMAGE.$oldImage);
 		
 				}
 			}

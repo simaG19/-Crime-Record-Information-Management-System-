@@ -14,7 +14,7 @@ if(isset($_POST['submit'])){
       $_SESSION['ADMIN_USER']=$row['name'];
       $_SESSION['ADMIN_USER_NAME']=$row['username'];
       $_SESSION['ADMIN_ID']=$row['id'];
-      redirect('index.php');
+      redirect('index1.php');
     }else{
         $msg="Please enter correct login details";
     }

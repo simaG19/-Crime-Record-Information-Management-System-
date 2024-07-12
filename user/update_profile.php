@@ -5,14 +5,14 @@ include('../function.inc.php');
 
 //include('smtp/PHPMailerAutoload.php');
 $uid=$_SESSION['SUB_ADMIN_IS_LOGIN'];
-$type=get_safe_value($_POST['type']);
+$type=get_safe_value($con, $_POST['type']);
 if($type=='profile'){
-	$name=get_safe_value($_POST['name']);
-    $name=get_safe_value($_POST['dob']);
-    $email=get_safe_value($_POST['email']);
-	$mobile=get_safe_value($_POST['mobile']);
-    $address=get_safe_value($_POST['address']);
-    $station=get_safe_value($_POST['station']);
+	$name=get_safe_value($con, $_POST['name']);
+    $name=get_safe_value($con, $_POST['dob']);
+    $email=get_safe_value($con, $_POST['email']);
+	$mobile=get_safe_value($con, $_POST['mobile']);
+    $address=get_safe_value($con, $_POST['address']);
+    $station=get_safe_value($con, $_POST['station']);
 	$_SESSION['POLICE_USER']=$name;
 	mysqli_query($con,"update police set name='$name',dob='$dob',email='$email',mobile='$mobile',address='$address',station='$station' where id='$uid'");
 	$arr=array('status'=>'success','msg'=>'Profile has been updated');
@@ -20,8 +20,8 @@ if($type=='profile'){
 }
 
 if($type=='password'){
-	$old_password=get_safe_value($_POST['old_password']);
-	$new_password=get_safe_value($_POST['new_password']);
+	$old_password=get_safe_value($con, $_POST['old_password']);
+	$new_password=get_safe_value($con, $_POST['new_password']);
 	
 	$check=mysqli_num_rows(mysqli_query($con,"select * from police where password='$old_password'"));
 	$res=mysqli_query($con,"select password from police where id='$uid'");

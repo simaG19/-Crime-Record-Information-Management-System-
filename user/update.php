@@ -1,7 +1,7 @@
 <?php
 include('header.php');
 if(!isset($_SESSION['SUB_ADMIN_USER_ID'])){
-	redirect('login.php');
+	redirect('index.php');
 }
 function getUserDetailsByidonly(){
 	global $con;
