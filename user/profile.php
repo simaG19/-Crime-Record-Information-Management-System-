@@ -13,31 +13,7 @@ $result = mysqli_query($con ,$sql);
 $row = mysqli_fetch_array($result);
 
 
-// function rowByidonly(){
-// 	global $con;
-//     $data['id']='';
-// 	$data['name']='';
-//     $data['dob']='';
-// 	$data['email']='';
-// 	$data['phone']='';
-//     $data['address']='';
-//     $data['station']='';
-	
-// 	if(isset($_SESSION['SUB_ADMIN_USER_ID'])){
-// 		$row=mysqli_fetch_assoc(mysqli_query($con,"select * from user where id=".$_SESSION['SUB_ADMIN_USER_ID']));
 // 		$data['id']=$row['id'];
-//         $data['name']=$row['name'];
-// 		$data['dob']=$row['dob'];
-//         $data['email']=$row['email'];
-// 		$data['phone']=$row['phone'];
-//         $data['address']=$row['address'];
-//         $data['station']=$row['station'];
-// 	}
-// 	return $data;
-// }
-// $row=rowByidonly();
-
-
 
 if(isset($_POST['submit'])){
 
@@ -48,10 +24,10 @@ if(isset($_POST['submit'])){
     $email= mysqli_real_escape_string($con,$_POST['email']);
 	$mobile= mysqli_real_escape_string($con,$_POST['phone']);
     $address= mysqli_real_escape_string($con,$_POST['address']);
-    $station= mysqli_real_escape_string($con,$_POST['station']);
+    
 	$pass=mysqli_real_escape_string($con,$_POST['password']);
 
-	mysqli_query($con,"update user set name='$name',dob='$dob',email='$email',phone='$mobile',address='$address',station='$station', password='$pass' where id='$uid'");
+	mysqli_query($con,"update user set name='$name',dob='$dob',email='$email',phone='$mobile',address='$address', password='$pass' where id='$uid'");
 	$arr=array('Profile has been updated');
 	echo json_encode($arr);
 }
@@ -74,7 +50,7 @@ if(isset($_POST['submit'])){
                                     </div>
                                     <div id="my-account-1" class="panel-collapse collapse show">
                                         <div class="panel-body">
-                                            <form action="" method="post" >
+                                            <form action="" method="post">
                                                 <div class="billing-information-wrapper">
                                                     <div class="account-info-wrapper">
                                                         <h5>Personal Details</h5>
@@ -82,8 +58,8 @@ if(isset($_POST['submit'])){
                                                     <div class="row">
                                                     <div class="col-lg-6 col-md-6">
                                                             <div class="billing-info">
-                                                                <label>password</label>
-                                                                <input type="text" name="password" required value="<?php echo $row['password']?> ">
+                                                                <label>Password</label>
+                                                                <input type="text" name="password" required pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must be at least 8 characters long and contain both upper and lower case characters." value="<?php echo $row['password']?>">
                                                             </div>
                                                         </div>
                                                         <div class="col-lg-6 col-md-6">
@@ -104,7 +80,7 @@ if(isset($_POST['submit'])){
                                                                 <input type="text" name="phone" value="<?php echo $row['phone']?>" required>
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6">
+                                                        <div class="col-lg-6 col-md=6">
                                                             <div class="billing-info">
                                                                 <label>Email Address</label>
                                                                 <input type="email" name="email" value="<?php echo $row['email']?>">
@@ -116,7 +92,6 @@ if(isset($_POST['submit'])){
                                                                 <input type="address" name="address" value="<?php echo $row['address']?>">
                                                             </div>
                                                         </div>
-                                                       
                                                         
                                                     </div>
                                                     <div class="billing-back-btn">

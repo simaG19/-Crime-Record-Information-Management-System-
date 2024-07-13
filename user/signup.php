@@ -7,12 +7,9 @@ $password = "";
 $email = "";
 $gender = "";
 $dob = "";
-$image = "";
-$station = "";
 $address = "";
 $phone = "";
 $id = "";
-
 
 if (isset($_POST['submit'])) {
   $name = get_safe_value($con, $_POST['name']);
@@ -21,19 +18,15 @@ if (isset($_POST['submit'])) {
   $email = get_safe_value($con, $_POST['email']);
   $gender = get_safe_value($con, $_POST['gender']);
   $dob = get_safe_value($con, $_POST['dob']);
-
   $address = get_safe_value($con, $_POST['address']);
   $phone = get_safe_value($con, $_POST['phone']);
 
   $select = "SELECT * FROM user WHERE username = '$username'";
 
   if (mysqli_num_rows(mysqli_query($con, $select)) > 0) {
-    $msg = "user Username already added";
+    $msg = "Username already exists";
   } else {
-
-
-    $sql = "INSERT INTO user(name, username, password, email, gender, dob, address,phone,role) VALUES('$name', '$username', '$password', '$email', '$gender','$dob','$address','$phone','user')";
-
+    $sql = "INSERT INTO user(name, username, password, email, gender, dob, address, phone, role) VALUES('$name', '$username', '$password', '$email', '$gender', '$dob', '$address', '$phone', 'user')";
     mysqli_query($con, $sql);
     redirect('index.php');
   }
@@ -57,13 +50,12 @@ if (isset($_POST['submit'])) {
               </div>
               <div class="form-group">
                 <label for="exampleInputName1">Password</label>
-                <input type="text" name="password" class="form-control" id="exampleInputName1" placeholder="Password" required value="<?php echo $password ?>">
+                <input type="password" name="password" class="form-control" id="exampleInputName1" placeholder="Password" required pattern="(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Password must be at least 8 characters long and contain both upper and lower case characters." value="<?php echo $password ?>">
               </div>
               <div class="form-group">
                 <label for="exampleInputEmail3">Email address</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail3" placeholder="Email" value="<?php echo $email ?>">
               </div>
-
               <div class="form-group">
                 <label for="exampleSelectGender">Gender</label>
                 <select name="gender" class="form-control" id="exampleSelectGender">
@@ -84,19 +76,17 @@ if (isset($_POST['submit'])) {
                 <label for="exampleInputAddress1">Address</label>
                 <input type="text" name="address" class="form-control" id="exampleInputCity1" placeholder="Location" required value="<?php echo $address ?>">
               </div>
-
               <div class="form-group">
-
                 <button type="submit" class="btn btn-primary mr-2" name="submit">Register</button>
                 <div style="color:red;margin-top: 15px;"><?php echo $msg ?></div>
+              </div>
             </form>
           </div>
         </div>
       </div>
-
     </div>
-
   </div>
-  <?php
-  include('footer.php');
-  ?>
+</div>
+<?php
+include('footer.php');
+?>
