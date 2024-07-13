@@ -13,7 +13,6 @@ $result = mysqli_query($con ,$sql);
 $row = mysqli_fetch_array($result);
 
 
-// 		$data['id']=$row['id'];
 
 if(isset($_POST['submit'])){
 
